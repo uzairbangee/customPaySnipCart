@@ -13,10 +13,10 @@ exports.handler = async function(event, context, callback) {
 
     console.log("RESPONSE", response);
     // Return a 404 if the request is not from Snipcart
-    if (!response.ok) return {
-        statusCode: 404,
-        body: ""
-    }
+    // if (!response.ok) return {
+    //     statusCode: 404,
+    //     body: ""
+    // }
 
     // Create a payment method list
     let paymentMethodList = [{
