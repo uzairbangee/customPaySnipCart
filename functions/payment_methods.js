@@ -1,3 +1,5 @@
+import axios from "axios";
+
 exports.handler = async function(event, context, callback) {   
     // Get request's body
     const request = JSON.parse(event.body)
@@ -6,7 +8,7 @@ exports.handler = async function(event, context, callback) {
     const SITE_URL = process.env.URL || 'http://localhost:8888';
 
     // Validate that the request is coming from Snipcart
-    const response = await fetch(`https://payment.snipcart.com/api/public/custom-payment-gateway/validate?publicToken=${request.PublicToken}`)
+    const response = await axios.get(`https://payment.snipcart.com/api/public/custom-payment-gateway/validate?publicToken=${request.PublicToken}`)
 
     // Return a 404 if the request is not from Snipcart
     if (!response.ok) return {
