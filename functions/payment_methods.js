@@ -9,8 +9,9 @@ exports.handler = async function(event, context, callback) {
     const SITE_URL = process.env.URL || 'http://localhost:8888';
 
     // Validate that the request is coming from Snipcart
-    const response = await axios.get(`https://payment.snipcart.com/api/public/custom-payment-gateway/validate?publicToken=${request.PublicToken}`)
+    const response = await axios.get(`https://payment.snipcart.com/api/public/custom-payment-gateway/validate?publicToken=${request.publicToken}`)
 
+    console.log("RESPONSE", response);
     // Return a 404 if the request is not from Snipcart
     if (!response.ok) return {
         statusCode: 404,
