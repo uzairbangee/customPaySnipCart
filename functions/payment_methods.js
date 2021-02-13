@@ -1,6 +1,7 @@
 exports.handler = async function(event, context, callback) {   
     // Get request's body
     const request = JSON.parse(event.body)
+    console.log(request);
 
     const SITE_URL = process.env.URL || 'http://localhost:8888';
 
@@ -18,8 +19,10 @@ exports.handler = async function(event, context, callback) {
         id: '1',
         name: 'Peach Payments',
         iconUrl: '<payment_method_icon_url_optional>',
-        checkoutUrl: `${SITE_URL}/pay`,
+        checkoutUrl: `https://stoic-brown-2067fd.netlify.app/pay`,
     }]
+
+    console.log(paymentMethodList);
 
     // Return successful status code and available payment methods
     return {
