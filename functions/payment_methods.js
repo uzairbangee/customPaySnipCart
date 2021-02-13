@@ -1,5 +1,6 @@
-import axios from "axios";
+const axios = require('axios');
 
+require('dotenv').config();
 exports.handler = async function(event, context, callback) {   
     // Get request's body
     const request = JSON.parse(event.body)
